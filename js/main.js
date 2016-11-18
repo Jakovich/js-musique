@@ -13,9 +13,9 @@
     loadTemplate('.main--level-genre'),
     loadTemplate('.main--result')
   ];
-  
+
   let current = -1;
-  
+
   let select = (index) => {
     current = index;
     let mainElement = document.querySelector('.main');
