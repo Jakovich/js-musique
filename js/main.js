@@ -3,7 +3,7 @@
   let template = document.querySelector('template');
 
   let loadTemplate = (templateName) => {
-    var content = template.content ? template.content : template;
+    let content = template.content ? template.content : template;
     return content.querySelector(templateName).cloneNode(true);
   };
 
@@ -15,11 +15,11 @@
     loadTemplate('.main--result')
   ];
   
-  const CURRENT = -1;
+  let current = -1;
 
   let select = (index) => {
     current = index;
-    var mainElement = document.querySelector('.main');
+    let mainElement = document.querySelector('.main');
     mainElement.parentNode.replaceChild(slides[index], mainElement);
   };
 
@@ -27,11 +27,11 @@
     evt.preventDefault();
 
     switch (evt.keyCode) {
-      case 37: CURRENT--; break;
-      case 39: CURRENT++; break;
+      case 37: current--; break;
+      case 39: current++; break;
     }
 
-    select(CURRENT);
+    select(current);
   };
 
   select(0);
