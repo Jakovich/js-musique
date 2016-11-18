@@ -1,36 +1,37 @@
 (function () {
 
-  var template = document.querySelector('template');
+  let template = document.querySelector('template');
 
-  var loadTemplate = function (templateName) {
+  let loadTemplate = (templateName) => {
     var content = template.content ? template.content : template;
     return content.querySelector(templateName).cloneNode(true);
   };
 
 
-  var slides = [
+  let slides = [
     loadTemplate('.main--welcome'),
     loadTemplate('.main--level-artist'),
     loadTemplate('.main--level-genre'),
     loadTemplate('.main--result')
   ];
-  var current = -1;
+  
+  const CURRENT = -1;
 
-  var select = function (index) {
+  let select = (index) => {
     current = index;
     var mainElement = document.querySelector('.main');
     mainElement.parentNode.replaceChild(slides[index], mainElement);
   };
 
-  document.onkeydown = function (evt) {
+  document.onkeydown = (evt) => {
     evt.preventDefault();
 
     switch (evt.keyCode) {
-      case 37: current--; break;
-      case 39: current++; break;
+      case 37: CURRENT--; break;
+      case 39: CURRENT++; break;
     }
 
-    select(current);
+    select(CURRENT);
   };
 
   select(0);
