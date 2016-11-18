@@ -1,17 +1,17 @@
 {
-  "name": "50210-guess-melody",
+  "name": "js-musique",
   "version": "0.1.0",
   "private": true,
-  "description": "Личный проект «Угадай мелодию» от HTML Academy",
-  "author": "Екатерина Иванюта",
+  "description": "Une tentative de js-up pour projet de cours en ligne",
+  "author": "Nadia Pillard",
   "repository": {
     "type": "git",
-    "url": "git@github.com:htmlacademy-ecmascript/50210-guess-melody.git"
+    "url": "git@github.com:https://github.com/Jakovich/js-musique.git"
   },
   "bugs": {
-    "url": "https://github.com/htmlacademy-ecmascript/50210-guess-melody/issues"
+    "url": "https://github.com/https://github.com/Jakovich/js-musique.git/issues"
   },
-  "homepage": "https://github.com/htmlacademy-ecmascript/50210-guess-melody",
+  "homepage": "https://github.com/https://github.com/Jakovich/js-musique",
   "babel": {
     "presets": [
       "es2015"
