@@ -7,7 +7,6 @@
     return content.querySelector(templateName).cloneNode(true);
   };
 
-
   let slides = [
     loadTemplate('.main--welcome'),
     loadTemplate('.main--level-artist'),
@@ -16,7 +15,7 @@
   ];
   
   let current = -1;
-
+  
   let select = (index) => {
     current = index;
     let mainElement = document.querySelector('.main');
