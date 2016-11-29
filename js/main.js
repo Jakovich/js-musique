@@ -4,7 +4,7 @@ import {genreScreen} from './screens/genre';
 import {resultScreen} from './screens/result';
 
 (function () {
-  
+
   let slides = [
     welcomeScreen,
     artistScreen,
