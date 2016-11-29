@@ -13,5 +13,5 @@ export const welcomeScreen = createElement(
         На&nbsp;каждую мелодию всего 3 варианта ответа.<br>
         Удачи!
       </p>
-    </section>` 
+    </section>`
   );
