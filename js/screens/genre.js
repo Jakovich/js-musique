@@ -47,4 +47,4 @@ answerButton.onclick = (evt) => {
       break;
     }
   }
-}
+};
