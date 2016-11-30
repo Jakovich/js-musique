@@ -1,17 +1,15 @@
+import {welcomeScreen} from './screens/welcome';
+import {artistScreen} from './screens/artist';
+import {genreScreen} from './screens/genre';
+import {resultScreen} from './screens/result';
+
 (function () {
 
-  let template = document.querySelector('template');
-
-  let loadTemplate = (templateName) => {
-    let content = template.content ? template.content : template;
-    return content.querySelector(templateName).cloneNode(true);
-  };
-
   let slides = [
-    loadTemplate('.main--welcome'),
-    loadTemplate('.main--level-artist'),
-    loadTemplate('.main--level-genre'),
-    loadTemplate('.main--result')
+    welcomeScreen,
+    artistScreen,
+    genreScreen,
+    resultScreen
   ];
 
   let current = -1;
