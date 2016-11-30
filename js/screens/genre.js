@@ -1,5 +1,6 @@
 import createElement from '../createElement';
-
+import {renderElement} from '../renderElement';
+import {resultScreen} from './result';
 
 // Экран выбора исполнителя: уровень
 export const genreScreen = createElement(
@@ -35,4 +36,15 @@ export const genreScreen = createElement(
     </section>`
 );
 
+let answerButton = genreScreen.querySelector('.genre-answer-send');
+let answers = genreScreen.querySelectorAll('.genre input[name=answer]');
 
+answerButton.onclick = (evt) => {
+  evt.preventDefault();
+  for (const it of answers) {
+    if (it.checked) {
+      renderElement(resultScreen);
+      break;
+    }
+  }
+}
