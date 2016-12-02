@@ -1,4 +1,6 @@
 import createElement from '../createElement';
+import {renderElement} from '../renderElement';
+import {genreScreen} from './genre';
 
 
 // Экран выбора исполнителя: уровень
@@ -52,3 +54,7 @@ export const artistScreen = createElement(
   );
 
 
+let variantButtons = artistScreen.querySelectorAll('.main-answer');
+for (const it of variantButtons) {
+  it.onclick = () => renderElement(genreScreen);
+}
