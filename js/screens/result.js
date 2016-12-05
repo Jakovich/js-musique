@@ -9,8 +9,8 @@ const content = {
     quantity: '4&nbsp;мелодии',
     time: '2&nbsp;минуты'
   },
-  comparison: `80%&nbsp;игроков`
-}
+  comparison: '80%&nbsp;игроков'
+};
 
 const title = `<h2 class="title">${content.title}</h2>`;
 const result = `<div class="main-stat">За&nbsp;${content.result.time}<br>вы&nbsp;отгадали ${content.result.quantity}</div>`;

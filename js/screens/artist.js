@@ -2,8 +2,6 @@ import createElement from '../createElement';
 import {renderElement} from '../renderElement';
 import {genreScreen} from './genre';
 
-
-
 const content = {
   question: 'Кто исполняет эту песню?',
   answers: [
@@ -29,8 +27,7 @@ const content = {
   timer: {
     minutes: 2,
     seconds: 0
-  }
-    
+  }    
 };
 
 const timer = 
@@ -46,16 +43,16 @@ const timer =
         --><span class="timer-value-secs">${content.timer.seconds}</span>
       </div>`;
 
-
 const title = `<h2 class="title main-title">${content.question}</h2>`
 
 const createAnswerItem = (answerContent) => {
-  return `<div class="main-answer-wrapper">
-      <input class="main-answer-r" type="radio" id="${answerContent.id}" name="answer" value="${answerContent.value}" />
-      <label class="main-answer" for="${answerContent.id}">
-      <img class="main-answer-preview" src="${answerContent.src}">
-        ${answerContent.text}
-      </label>
+  return 
+  `<div class="main-answer-wrapper">
+    <input class="main-answer-r" type="radio" id="${answerContent.id}" name="answer" value="${answerContent.value}" />
+    <label class="main-answer" for="${answerContent.id}">
+    <img class="main-answer-preview" src="${answerContent.src}">
+    ${answerContent.text}
+    </label>
   </div>`
 };
 
