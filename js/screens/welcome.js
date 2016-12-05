@@ -1,6 +1,5 @@
 import createElement from '../createElement';
 
-
 // Экран приветствия
 export const welcomeScreen = createElement(
     `<section class="main main--welcome">

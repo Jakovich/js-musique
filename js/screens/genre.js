@@ -2,35 +2,39 @@ import createElement from '../createElement';
 import {renderElement} from '../renderElement';
 import {resultScreen} from './result';
 
+const content = {
+  question: 'Выберите инди-рок треки',
+  answerQuantity: 4
+}
+
+const title = `<h2 class="title">${content.question}</h2>`
+const createAnswerItem = (number) => {
+  return `<div class="genre-answer">
+            <div class="player-wrapper"></div>
+            <input type="checkbox" name="answer" value="answer-${number}" id="a-${number}">
+            <label class="genre-answer-check" for="a-${number}"></label>
+          </div>`
+};
+
+const createAnswerItems = () => {
+  
+  let answers = [];
+  for (let i = 1; i < content.answerQuantity + 1; i++) {
+    answers.push(i);
+  }
+  let answerItems = answers.reduce(function(sum, current) {
+    return sum + createAnswerItem(current);
+  }, '');
+  return answerItems;
+}
+
+
 // Экран выбора исполнителя: уровень
 export const genreScreen = createElement(
     `<section class="main main--level main--level-genre">
-      <h2 class="title">Выберите инди-рок треки</h2>
+      ${title}
       <form class="genre">
-        <div class="genre-answer">
-          <div class="player-wrapper"></div>
-          <input type="checkbox" name="answer" value="answer-1" id="a-1">
-          <label class="genre-answer-check" for="a-1"></label>
-        </div>
-  
-        <div class="genre-answer">
-          <div class="player-wrapper"></div>
-          <input type="checkbox" name="answer" value="answer-1" id="a-2">
-          <label class="genre-answer-check" for="a-2"></label>
-        </div>
-  
-        <div class="genre-answer">
-          <div class="player-wrapper"></div>
-          <input type="checkbox" name="answer" value="answer-1" id="a-3">
-          <label class="genre-answer-check" for="a-3"></label>
-        </div>
-  
-        <div class="genre-answer">
-          <div class="player-wrapper"></div>
-          <input type="checkbox" name="answer" value="answer-1" id="a-4">
-          <label class="genre-answer-check" for="a-4"></label>
-        </div>
-  
+        ${createAnswerItems()}
         <button class="genre-answer-send" type="submit">Ответить</button>
       </form>
     </section>`
