@@ -18,13 +18,13 @@ const comparison = `<span class="main-comparison">Это&nbsp;лучше чем 
 
 // Экран выбора исполнителя: уровень
 export const resultScreen = createElement(
-  `<section class="main main--result">
-    <section class="logo" title="Угадай мелодию"><h1>Угадай мелодию</h1></section>
-    ${title}
-    ${result}
-    ${comparison}
-    <span role="button" tabindex="0" class="main-replay">Сыграть ещё раз</span>
-  </section>`
+    `<section class="main main--result">
+      <section class="logo" title="Угадай мелодию"><h1>Угадай мелодию</h1></section>
+      ${title}
+      ${result}
+      ${comparison}
+      <span role="button" tabindex="0" class="main-replay">Сыграть ещё раз</span>
+    </section>`
 );
 
 let newGameButton = resultScreen.querySelector('.main-replay');

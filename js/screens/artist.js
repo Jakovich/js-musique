@@ -27,10 +27,10 @@ const content = {
   timer: {
     minutes: 2,
     seconds: 0
-  }    
+  }
 };
 
-const timer = 
+const timer =
        `<svg xmlns="http://www.w3.org/2000/svg" class="timer" viewBox="0 0 780 780">
         <circle
           cx="390" cy="390" r="370"
@@ -43,24 +43,21 @@ const timer =
         --><span class="timer-value-secs">${content.timer.seconds}</span>
       </div>`;
 
-const title = `<h2 class="title main-title">${content.question}</h2>`
+const title = `<h2 class="title main-title">${content.question}</h2>`;
 
 const createAnswerItem = (answerContent) => {
-  return 
-  `<div class="main-answer-wrapper">
-    <input class="main-answer-r" type="radio" id="${answerContent.id}" name="answer" value="${answerContent.value}" />
-    <label class="main-answer" for="${answerContent.id}">
-    <img class="main-answer-preview" src="${answerContent.src}">
-    ${answerContent.text}
-    </label>
-  </div>`
+  return `<div class="main-answer-wrapper">
+            <input class="main-answer-r" type="radio" id="${answerContent.id}" name="answer" value="${answerContent.value}" />
+            <label class="main-answer" for="${answerContent.id}">
+            <img class="main-answer-preview" src="${answerContent.src}">
+            ${answerContent.text}
+            </label>
+          </div>`;
 };
 
-const answerItems = () => content.answers.reduce(function(sum, current) {
+const answerItems = () => content.answers.reduce(function (sum, current) {
   return sum + createAnswerItem(current);
 }, '');
- 
-
 
 // Экран выбора исполнителя: уровень
 export const artistScreen = createElement(
@@ -79,7 +76,6 @@ export const artistScreen = createElement(
       </div>
     </section>`
   );
-
 
 let variantButtons = artistScreen.querySelectorAll('.main-answer');
 for (const it of variantButtons) {
