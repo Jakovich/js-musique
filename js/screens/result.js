@@ -21,7 +21,7 @@ const resultContent = `<div class="main-stat">За&nbsp;${result.data.time}&nbsp
 const comparison = `<span class="main-comparison">Это&nbsp;лучше чем у&nbsp;${result.data.comparison}%&nbsp;игроков`;
 
 // Экран выбора исполнителя: уровень
- const resultScreen = createElement(
+const resultScreen = createElement(
     `<section class="main main--result">
       <section class="logo" title="Угадай мелодию"><h1>Угадай мелодию</h1></section>
       ${title}

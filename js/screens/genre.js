@@ -49,8 +49,8 @@ const createAnswerItem = (index) => {
   //создание html всех ответов
 */
 const createAnswerItems = () => genre.answers.reduce(function (sum, current, index) {
-    return sum + createAnswerItem(index + 1);
-  }, '');
+  return sum + createAnswerItem(index + 1);
+}, '');
 
 // Экран выбора исполнителя: уровень
 const genreScreen = createElement(
