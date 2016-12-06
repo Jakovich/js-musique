@@ -1,36 +1,63 @@
 import createElement from '../createElement';
-import {renderElement} from '../renderElement';
-import {resultScreen} from './result';
+import renderElement from '../renderElement';
+import resultScreen from './result';
+
+
+/**
+  * @const
+  * @type {object}
+*/
+const genre = {
+  question: 'Выберите инди-рок треки',
+  answers: [
+    {
+      audio: 'src-1',
+      correct: true
+    },
+    {
+      audio: 'src-2',
+      correct: false
+    },
+    {
+      audio: 'src-3',
+      correct: false
+    },
+    {
+      audio: 'src-4',
+      correct: false
+    }
+  ]
+};
+
+const title = `<h2 class="title">${genre.question}</h2>`;
+
+/**
+  * @param {number} index
+  * @return {string}
+  //создание структуры html ответа
+*/
+const createAnswerItem = (index) => {
+  return `<div class="genre-answer">
+            <div class="player-wrapper"></div>
+            <input type="checkbox" name="answer" value="answer-${index}" id="a-${index}">
+            <label class="genre-answer-check" for="a-${index}"></label>
+          </div>`;
+};
+
+/**
+  * @return {string}
+  //создание html всех ответов
+*/
+const createAnswerItems = () => genre.answers.reduce(function (sum, current, index) {
+  return sum + createAnswerItem(index + 1);
+}, '');
 
 // Экран выбора исполнителя: уровень
-export const genreScreen = createElement(
+const genreScreen = createElement(
     `<section class="main main--level main--level-genre">
-      <h2 class="title">Выберите инди-рок треки</h2>
+      ${title}
       <form class="genre">
-        <div class="genre-answer">
-          <div class="player-wrapper"></div>
-          <input type="checkbox" name="answer" value="answer-1" id="a-1">
-          <label class="genre-answer-check" for="a-1"></label>
-        </div>
-  
-        <div class="genre-answer">
-          <div class="player-wrapper"></div>
-          <input type="checkbox" name="answer" value="answer-1" id="a-2">
-          <label class="genre-answer-check" for="a-2"></label>
-        </div>
-  
-        <div class="genre-answer">
-          <div class="player-wrapper"></div>
-          <input type="checkbox" name="answer" value="answer-1" id="a-3">
-          <label class="genre-answer-check" for="a-3"></label>
-        </div>
-  
-        <div class="genre-answer">
-          <div class="player-wrapper"></div>
-          <input type="checkbox" name="answer" value="answer-1" id="a-4">
-          <label class="genre-answer-check" for="a-4"></label>
-        </div>
-  
+        ${createAnswerItems()}
         <button class="genre-answer-send" type="submit">Ответить</button>
       </form>
     </section>`
@@ -48,3 +75,5 @@ answerButton.onclick = (evt) => {
     }
   }
 };
+
+export default genreScreen;
