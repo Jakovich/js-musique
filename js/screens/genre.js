@@ -1,6 +1,6 @@
 import createElement from '../createElement';
-import {renderElement} from '../renderElement';
-import {resultScreen} from './result';
+import renderElement from '../renderElement';
+import resultScreen from './result';
 
 
 /**
@@ -34,7 +34,7 @@ const title = `<h2 class="title">${genre.question}</h2>`;
 /**
   * @param {number} index
   * @return {string}
-  //создание структуры html ответа 
+  //создание структуры html ответа
 */
 const createAnswerItem = (index) => {
   return `<div class="genre-answer">
@@ -48,16 +48,12 @@ const createAnswerItem = (index) => {
   * @return {string}
   //создание html всех ответов
 */
-const createAnswerItems = () => 
-  genre.answers.reduce(function (sum, current, index) {
-    return sum + createAnswerItem(index+1);
+const createAnswerItems = () => genre.answers.reduce(function (sum, current, index) {
+    return sum + createAnswerItem(index + 1);
   }, '');
-  
-
-
 
 // Экран выбора исполнителя: уровень
-export const genreScreen = createElement(
+const genreScreen = createElement(
     `<section class="main main--level main--level-genre">
       ${title}
       <form class="genre">
@@ -79,3 +75,5 @@ answerButton.onclick = (evt) => {
     }
   }
 };
+
+export default genreScreen;

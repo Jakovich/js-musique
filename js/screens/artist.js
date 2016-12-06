@@ -1,6 +1,6 @@
 import createElement from '../createElement';
-import {renderElement} from '../renderElement';
-import {genreScreen} from './genre';
+import renderElement from '../renderElement';
+import genreScreen from './genre';
 
 
 /**
@@ -21,7 +21,6 @@ const artist = {
       correct: false
     },
     {
-      
       src: 'img/src-3',
       text: 'Lorde',
       correct: false
@@ -48,10 +47,10 @@ const timer =
 
 const title = `<h2 class="title main-title">${artist.question}</h2>`;
 /**
-  * @param {number} index
   * @param {object} answerContent
+  * @param {number} index
   * @return {string}
-  //создание структуры html ответа 
+  //создание структуры html ответа
 */
 const createAnswerItem = (answerContent, index) => {
   return `<div class="main-answer-wrapper">
@@ -72,7 +71,7 @@ const answerItems = () => artist.answers.reduce(function (sum, current, index) {
 }, '');
 
 // Экран выбора исполнителя: уровень
-export const artistScreen = createElement(
+const artistScreen = createElement(
     `<section class="main main--level main--level-artist">
       ${timer}
   
@@ -93,3 +92,5 @@ let variantButtons = artistScreen.querySelectorAll('.main-answer');
 for (const it of variantButtons) {
   it.onclick = () => renderElement(genreScreen);
 }
+
+export default artistScreen;
