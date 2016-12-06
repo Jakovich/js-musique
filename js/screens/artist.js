@@ -2,26 +2,29 @@ import createElement from '../createElement';
 import {renderElement} from '../renderElement';
 import {genreScreen} from './genre';
 
-const content = {
+
+/**
+  * @const
+  * @type {object}
+*/
+const artist = {
   question: 'Кто исполняет эту песню?',
   answers: [
     {
-      id: 'answer-1',
-      value: 'val-1',
       src: 'img/src-1',
-      text: 'Пелагея'
+      text: 'Пелагея',
+      correct: true
     },
     {
-      id: 'answer-2',
-      value: 'val-2',
       src: 'img/src-2',
-      text: 'Краснознаменная дивизия имени моей бабушки'
+      text: 'Краснознаменная дивизия имени моей бабушки',
+      correct: false
     },
     {
-      id: 'answer-3',
-      value: 'val-3',
+      
       src: 'img/src-3',
-      text: 'Lorde'
+      text: 'Lorde',
+      correct: false
     }
   ],
   timer: {
@@ -38,25 +41,34 @@ const timer =
           style="filter: url(.#blur); transform: rotate(-90deg) scaleY(-1); transform-origin: center"></circle>
       </svg>
       <div class="timer-value" xmlns="http://www.w3.org/1999/xhtml">
-        <span class="timer-value-mins">${content.timer.minutes}</span><!--
+        <span class="timer-value-mins">${artist.timer.minutes}</span><!--
         --><span class="timer-value-dots">:</span><!--
-        --><span class="timer-value-secs">${content.timer.seconds}</span>
+        --><span class="timer-value-secs">${artist.timer.seconds}</span>
       </div>`;
 
-const title = `<h2 class="title main-title">${content.question}</h2>`;
-
-const createAnswerItem = (answerContent) => {
+const title = `<h2 class="title main-title">${artist.question}</h2>`;
+/**
+  * @param {number} index
+  * @param {object} answerContent
+  * @return {string}
+  //создание структуры html ответа 
+*/
+const createAnswerItem = (answerContent, index) => {
   return `<div class="main-answer-wrapper">
-            <input class="main-answer-r" type="radio" id="${answerContent.id}" name="answer" value="${answerContent.value}" />
-            <label class="main-answer" for="${answerContent.id}">
+            <input class="main-answer-r" type="radio" id="answer-${index}" name="answer" value="val-${index}" />
+            <label class="main-answer" for="answer-${index}">
             <img class="main-answer-preview" src="${answerContent.src}">
             ${answerContent.text}
             </label>
           </div>`;
 };
 
-const answerItems = () => content.answers.reduce(function (sum, current) {
-  return sum + createAnswerItem(current);
+/**
+  * @return {string}
+  //создание html всех ответов
+*/
+const answerItems = () => artist.answers.reduce(function (sum, current, index) {
+  return sum + createAnswerItem(current, index + 1);
 }, '');
 
 // Экран выбора исполнителя: уровень

@@ -2,30 +2,58 @@ import createElement from '../createElement';
 import {renderElement} from '../renderElement';
 import {resultScreen} from './result';
 
-const content = {
+
+/**
+  * @const
+  * @type {object}
+*/
+const genre = {
   question: 'Выберите инди-рок треки',
-  answerQuantity: 4
+  answers: [
+    {
+      audio: 'src-1',
+      correct: true
+    },
+    {
+      audio: 'src-2',
+      correct: false
+    },
+    {
+      audio: 'src-3',
+      correct: false
+    },
+    {
+      audio: 'src-4',
+      correct: false
+    }
+  ]
 };
 
-const title = `<h2 class="title">${content.question}</h2>`;
-const createAnswerItem = (number) => {
+const title = `<h2 class="title">${genre.question}</h2>`;
+
+/**
+  * @param {number} index
+  * @return {string}
+  //создание структуры html ответа 
+*/
+const createAnswerItem = (index) => {
   return `<div class="genre-answer">
             <div class="player-wrapper"></div>
-            <input type="checkbox" name="answer" value="answer-${number}" id="a-${number}">
-            <label class="genre-answer-check" for="a-${number}"></label>
+            <input type="checkbox" name="answer" value="answer-${index}" id="a-${index}">
+            <label class="genre-answer-check" for="a-${index}"></label>
           </div>`;
 };
 
-const createAnswerItems = () => {
-  let answers = [];
-  for (let i = 1; i < content.answerQuantity + 1; i++) {
-    answers.push(i);
-  }
-  let answerItems = answers.reduce(function (sum, current) {
-    return sum + createAnswerItem(current);
+/**
+  * @return {string}
+  //создание html всех ответов
+*/
+const createAnswerItems = () => 
+  genre.answers.reduce(function (sum, current, index) {
+    return sum + createAnswerItem(index+1);
   }, '');
-  return answerItems;
-};
+  
+
 
 
 // Экран выбора исполнителя: уровень
