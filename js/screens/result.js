@@ -19,7 +19,7 @@ const content =
       ${comparison}
       <span role="button" tabindex="0" class="main-replay">Сыграть ещё раз</span>
     </section>`;
-  
+
   let resultScreen = createElement(content);
 
   let newGameButton = resultScreen.querySelector('.main-replay');

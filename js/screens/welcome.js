@@ -17,14 +17,14 @@ export default (data) => {
 
 // Экран приветствия
   let welcomeScreen = createElement(content);
-  
+
   let playButton = welcomeScreen.querySelector('.main-play');
-  
+
   playButton.onclick = (evt) => {
     evt.preventDefault();
     screenShow();
   };
-  
+
   return  welcomeScreen;
 }
 

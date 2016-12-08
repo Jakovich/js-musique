@@ -21,10 +21,8 @@ const show = () => {
       break;
     }
     counter++;
-  
   }
-  
-}
-  
+};
+
 export default show;
 

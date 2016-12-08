@@ -1,8 +1,9 @@
 import createElement from '../createElement';
 import renderElement from '../renderElement';
 import screenShow from '../screenShow';
+import timerHtml from './timerTemplate';
 export default (data) => {
-  const title = `<h2 class="title">${data.title}</h2>`;
+  const title = `<h2 class="title main-title">${data.title}</h2>`;
 
   /**
   * @param {number} index
@@ -11,10 +12,10 @@ export default (data) => {
   */
   const createAnswerItem = (index) => {
     return `<div class="genre-answer">
-            <div class="player-wrapper"></div>
-            <input type="checkbox" name="answer" value="answer-${index}" id="a-${index}">
-            <label class="genre-answer-check" for="a-${index}"></label>
-          </div>`;
+              <div class="player-wrapper"></div>
+              <input type="checkbox" name="answer" value="answer-${index}" id="a-${index}">
+              <label class="genre-answer-check" for="a-${index}"></label>
+            </div>`;
   };
 
   /**
@@ -28,13 +29,16 @@ export default (data) => {
 // Экран выбора исполнителя: уровень
   const content = 
     `<section class="main main--level main--level-genre">
-      ${title}
-      <form class="genre">
-        ${createAnswerItems()}
-        <button class="genre-answer-send" type="submit">Ответить</button>
-      </form>
+      ${timerHtml}
+      <div class="main-wrap">
+        ${title}
+        <form class="genre">
+          ${createAnswerItems()}
+          <button class="genre-answer-send" type="submit">Ответить</button>
+        </form>
+      </div>
     </section>`;
-  
+
   let genreScreen = createElement(content);
   let answerButton = genreScreen.querySelector('.genre-answer-send');
   let answers = genreScreen.querySelectorAll('.genre input[name=answer]');
@@ -48,7 +52,7 @@ export default (data) => {
       }
     }
   };
-  
+
   return genreScreen;
 
 }
