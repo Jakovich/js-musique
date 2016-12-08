@@ -1,40 +1,31 @@
 import createElement from '../createElement';
-import welcomeScreen from './welcome';
 import renderElement from '../renderElement';
+import welcomeScreen from './welcome';
+import {welcome} from '../data';
 
+export default (data) => {
 
-/**
-  * @const
-  * @type {object}
-*/
-const result = {
-  title: 'Вы настоящий меломан!',
-  data: {
-    quantity: '4',
-    time: '2',
-    comparison: '80'
-  }
-};
+  const title = `<h2 class="title">${data.title}</h2>`;
+  const resultContent = `<div class="main-stat">За&nbsp;${data.time}&nbsp;минуты<br>вы&nbsp;отгадали ${data.quantity}&nbsp;мелодии</div>`;
+  const comparison = `<span class="main-comparison">Это&nbsp;лучше чем у&nbsp;${data.comparison}%&nbsp;игроков`;
 
-const title = `<h2 class="title">${result.title}</h2>`;
-const resultContent = `<div class="main-stat">За&nbsp;${result.data.time}&nbsp;минуты<br>вы&nbsp;отгадали ${result.data.quantity}&nbsp;мелодии</div>`;
-const comparison = `<span class="main-comparison">Это&nbsp;лучше чем у&nbsp;${result.data.comparison}%&nbsp;игроков`;
-
-// Экран выбора исполнителя: уровень
-const resultScreen = createElement(
+  // Экран выбора исполнителя: уровень
+  const content =
     `<section class="main main--result">
       <section class="logo" title="Угадай мелодию"><h1>Угадай мелодию</h1></section>
       ${title}
       ${resultContent}
       ${comparison}
       <span role="button" tabindex="0" class="main-replay">Сыграть ещё раз</span>
-    </section>`
-);
+    </section>`;
 
-let newGameButton = resultScreen.querySelector('.main-replay');
-newGameButton.onclick = (evt) => {
-  evt.preventDefault();
-  renderElement(welcomeScreen);
+  let resultScreen = createElement(content);
+
+  let newGameButton = resultScreen.querySelector('.main-replay');
+  newGameButton.onclick = (evt) => {
+    evt.preventDefault();
+    renderElement(welcomeScreen(welcome));
+  };
+
+  return resultScreen;
 };
-
-export default resultScreen;
