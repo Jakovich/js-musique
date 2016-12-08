@@ -27,5 +27,5 @@ export default (data) => {
     renderElement(welcomeScreen(welcome));
   };
 
-  return  resultScreen;
+  return resultScreen;
 };

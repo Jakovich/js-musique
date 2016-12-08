@@ -18,7 +18,7 @@ const show = () => {
         break;
       case 'genre':
         renderElement(genreScreen(questions[counter]));
-      break;
+        break;
     }
     counter++;
   }

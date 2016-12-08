@@ -2,7 +2,7 @@ import createElement from '../createElement';
 import screenShow from '../screenShow';
 
 export default (data) => {
-  const title = `<section class="logo" title='Угадай мелодию!'><h1>'Угадай мелодию!'</h1></section>`;
+  const title = '<section class="logo" title="Угадай мелодию!"><h1>Угадай мелодию!</h1></section>';
 
   const rules = `<h2 class="title main-title">${data.title}</h2>
       <p class="text main-text">
@@ -24,6 +24,6 @@ export default (data) => {
     screenShow();
   };
 
-  return  welcomeScreen;
+  return welcomeScreen;
 
 };
