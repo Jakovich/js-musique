@@ -1,6 +1,4 @@
 import createElement from '../createElement';
-import renderElement from '../renderElement';
-
 import screenShow from '../screenShow';
 import timerHtml from './timerTemplate';
 
@@ -46,15 +44,12 @@ export default (data) => {
 
         </form>
       </div>
-    </section>`
+    </section>`;
 
   let artistScreen = createElement(content);
-  console.log(data.answers)
   let variantButtons = artistScreen.querySelectorAll('.main-answer');
   for (const it of variantButtons) {
     it.onclick = () => screenShow();
   }
   return artistScreen;
-}
-
-
+};

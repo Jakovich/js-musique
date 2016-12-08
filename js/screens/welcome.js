@@ -1,5 +1,4 @@
 import createElement from '../createElement';
-import renderElement from '../renderElement';
 import screenShow from '../screenShow';
 
 export default (data) => {
@@ -13,7 +12,7 @@ export default (data) => {
       ${title}
       <button class="main-play">Начать игру</button>
       ${rules}
-    </section>`
+    </section>`;
 
 // Экран приветствия
   let welcomeScreen = createElement(content);
@@ -26,6 +25,5 @@ export default (data) => {
   };
 
   return  welcomeScreen;
-}
 
-
+};

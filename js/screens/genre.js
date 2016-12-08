@@ -1,7 +1,7 @@
 import createElement from '../createElement';
-import renderElement from '../renderElement';
 import screenShow from '../screenShow';
 import timerHtml from './timerTemplate';
+
 export default (data) => {
   const title = `<h2 class="title main-title">${data.title}</h2>`;
 
@@ -27,7 +27,7 @@ export default (data) => {
   }, '');
 
 // Экран выбора исполнителя: уровень
-  const content = 
+  const content =
     `<section class="main main--level main--level-genre">
       ${timerHtml}
       <div class="main-wrap">
@@ -55,4 +55,4 @@ export default (data) => {
 
   return genreScreen;
 
-}
+};
